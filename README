@@ -1,0 +1,5 @@
+A short example for the BGRA to Grayscale Image conversion on an ARM (iPhone / ipad / iPod Touch )
+
+Source for the neon_convert and neon_asm_convert functions from Khvedchenya Eugene @ http://computer-vision-talks.com:
+
+http://computer-vision-talks.com/2011/02/A-VERY-FAST-BGRA-TO-GRAYSCALE-CONVERSION-ON-IPHONE/#COMMENT-127
