@@ -6,6 +6,8 @@
 //  Copyright 2011 Hochschule RheinMain. All rights reserved.
 //
 
+NSInteger fps = 0;
+
 #import "NEON_ASMViewController.h"
 
 @implementation NEON_ASMViewController
@@ -14,14 +16,25 @@
 @synthesize captureSession = _captureSession;
 @synthesize imageView = _imageView;
 @synthesize prevLayer = _prevLayer;
+@synthesize fpsLabel = _fpsLabel; 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+		
 	[self initCapture];
 }
 
+- (void)calc
+{
+	NSLog(@"fps: %i", fps);
+	fps = 0;
+}
+
 - (void)initCapture {
+	
+	//[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(calc) userInfo:nil repeats:YES];
+	
 	/*We setup the input*/
 	AVCaptureDeviceInput *captureInput = [AVCaptureDeviceInput 
 										  deviceInputWithDevice:[AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo] 
@@ -71,6 +84,14 @@
 	self.imageView.frame = CGRectMake(0, 0, 180, 240);
 	self.imageView.backgroundColor = [UIColor blackColor];
 	[self.view addSubview:self.imageView];
+		
+	
+	/* Add the fps Label */
+	UILabel *fps = [[UILabel alloc] initWithFrame:CGRectMake(bounds.size.width - 100, 0, 100, 20)];
+	self.fpsLabel = fps;
+	[self.view addSubview:self.fpsLabel];
+	[self.view bringSubviewToFront:self.fpsLabel];
+	[fps release];
 	
 	
 	/*We start the capture*/
@@ -140,6 +161,26 @@ static void neon_asm_convert(uint8_t * __restrict dest, uint8_t * __restrict src
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer 
 	   fromConnection:(AVCaptureConnection *)connection 
 { 
+
+	// Calculate FPS
+	fpsAverageAgingFactor = 0.2;
+	framesInSecond++;
+	endTime = [[NSDate date] timeIntervalSince1970];
+	
+	if (startTime <= 0) {
+		startTime = [[NSDate date] timeIntervalSince1970];
+	}
+	else {
+		if (endTime - startTime >= 1) {
+			double currentFPS = framesInSecond / (endTime - startTime);
+			fpsAverage = fpsAverageAgingFactor * fpsAverage + (1.0 - fpsAverageAgingFactor) * currentFPS;
+			startTime = [[NSDate date] timeIntervalSince1970];
+			framesInSecond = 0;
+		}
+		
+		[self.fpsLabel performSelectorOnMainThread:@selector(setText:) withObject:[NSString stringWithFormat:@"FPS: %.2f", fpsAverage] waitUntilDone:NO];
+	}
+	
 	/*We create an autorelease pool because as we are not in the main_queue our code is
 	 not executed in the main thread. So we have to create an autorelease pool for the thread we are in*/
 	
@@ -184,6 +225,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 	CVPixelBufferUnlockBaseAddress(imageBuffer,0);
 	
 	[pool drain];
+	
+	fps += 1;
 } 
 
 - (void)didReceiveMemoryWarning {
@@ -203,7 +246,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 	[_captureSession release];
 	[_imageView release];
 	[_prevLayer release];
-	
+	[_fpsLabel release];
     [super dealloc];
 }
 

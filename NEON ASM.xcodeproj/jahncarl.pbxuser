@@ -8,16 +8,16 @@
 	};
 	28D7ACF60DDB3853001CB0EB /* NEON_ASMViewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 540}}";
-			sepNavSelRange = "{732, 0}";
-			sepNavVisRange = "{0, 740}";
+			sepNavIntBoundsRect = "{{0, 0}, {1120, 508}}";
+			sepNavSelRange = "{909, 0}";
+			sepNavVisRange = "{0, 949}";
 		};
 	};
 	28D7ACF70DDB3853001CB0EB /* NEON_ASMViewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1171, 2743}}";
-			sepNavSelRange = "{6523, 0}";
-			sepNavVisRange = "{0, 1702}";
+			sepNavIntBoundsRect = "{{0, 0}, {1120, 3328}}";
+			sepNavSelRange = "{3330, 0}";
+			sepNavVisRange = "{2327, 1335}";
 		};
 	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
@@ -35,7 +35,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					993,
+					942,
 					20,
 					48,
 					43,
@@ -52,14 +52,14 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 332416138;
-			PBXWorkspaceStateSaveDate = 332416138;
+			PBXPerProjectTemplateStateSaveDate = 332418912;
+			PBXWorkspaceStateSaveDate = 332418912;
 		};
 		perUserProjectItems = {
-			AF53621913D044820056819F /* PBXTextBookmark */ = AF53621913D044820056819F /* PBXTextBookmark */;
+			AF5CFCC913D04F4B0073C21E /* PBXTextBookmark */ = AF5CFCC913D04F4B0073C21E /* PBXTextBookmark */;
+			AF5CFCD213D04F550073C21E /* PBXTextBookmark */ = AF5CFCD213D04F550073C21E /* PBXTextBookmark */;
+			AF5CFCDC13D04F630073C21E /* PBXTextBookmark */ = AF5CFCDC13D04F630073C21E /* PBXTextBookmark */;
 			AF92B28A13D045C20090E2D3 /* PlistBookmark */ = AF92B28A13D045C20090E2D3 /* PlistBookmark */;
-			AF92B28B13D045C20090E2D3 /* PBXTextBookmark */ = AF92B28B13D045C20090E2D3 /* PBXTextBookmark */;
-			AF92B28C13D045C20090E2D3 /* PBXTextBookmark */ = AF92B28C13D045C20090E2D3 /* PBXTextBookmark */;
 		};
 		sourceControlManager = AF5361AF13D0411D0056819F /* Source Control */;
 		userBuildSettings = {
@@ -109,15 +109,35 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	AF53621913D044820056819F /* PBXTextBookmark */ = {
+	AF5CFCC913D04F4B0073C21E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 28D7ACF60DDB3853001CB0EB /* NEON_ASMViewController.h */;
-		name = "NEON_ASMViewController.h: 25";
+		name = "NEON_ASMViewController.h: 32";
 		rLen = 0;
-		rLoc = 732;
+		rLoc = 909;
 		rType = 0;
-		vrLen = 740;
+		vrLen = 949;
 		vrLoc = 0;
+	};
+	AF5CFCD213D04F550073C21E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* NEON_ASMViewController.m */;
+		name = "NEON_ASMViewController.m: 90";
+		rLen = 0;
+		rLoc = 3330;
+		rType = 0;
+		vrLen = 1407;
+		vrLoc = 2159;
+	};
+	AF5CFCDC13D04F630073C21E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* NEON_ASMViewController.m */;
+		name = "NEON_ASMViewController.m: 90";
+		rLen = 0;
+		rLoc = 3330;
+		rType = 0;
+		vrLen = 1335;
+		vrLoc = 2327;
 	};
 	AF92B28A13D045C20090E2D3 /* PlistBookmark */ = {
 		isa = PlistBookmark;
@@ -128,26 +148,6 @@
 		);
 		name = "/Users/jahncarl/Desktop/NEON ASM/NEON_ASM-Info.plist";
 		rLen = 0;
-		rLoc = 9223372036854775807;
-	};
-	AF92B28B13D045C20090E2D3 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 28D7ACF70DDB3853001CB0EB /* NEON_ASMViewController.m */;
-		name = "NEON_ASMViewController.m: 180";
-		rLen = 0;
-		rLoc = 6625;
-		rType = 0;
-		vrLen = 1597;
-		vrLoc = 5255;
-	};
-	AF92B28C13D045C20090E2D3 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 28D7ACF70DDB3853001CB0EB /* NEON_ASMViewController.m */;
-		name = "NEON_ASMViewController.m: 174";
-		rLen = 0;
-		rLoc = 6523;
-		rType = 0;
-		vrLen = 1702;
-		vrLoc = 0;
+		rLoc = 9223372036854775808;
 	};
 }

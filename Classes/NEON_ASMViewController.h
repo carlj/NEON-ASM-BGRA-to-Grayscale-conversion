@@ -16,11 +16,21 @@
 	AVCaptureSession *_captureSession;
 	UIImageView *_imageView;
 	AVCaptureVideoPreviewLayer *_prevLayer;
+	UILabel *_fpsLabel;
+	
+	double						startTime;
+	double						endTime;
+	double						fpsAverage;
+	double						fpsAverageAgingFactor;
+	int							framesInSecond;
+	
 }
 
 @property (nonatomic, retain) AVCaptureSession *captureSession;
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) AVCaptureVideoPreviewLayer *prevLayer;
+@property (nonatomic, retain) UILabel *fpsLabel;
+
 
 - (void)initCapture;
 
